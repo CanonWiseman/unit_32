@@ -1,12 +1,12 @@
 const express = require('express');
 const ExpressError = require('./ExpressError');
-const expressError = require('./ExpressError')
+
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/mean', function(req, res, next){
+app.get('/mean', (req, res, next) => {
     try{
         if(Object.keys(req.query).length == 0){
             throw new ExpressError("Nums are required", 400)
